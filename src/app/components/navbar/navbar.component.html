@@ -1,0 +1,9 @@
+<nav class="navbar navbar-light background-dark mb-3">
+  <div class="container">
+    <a routerLink="/home" class="navbar-brand text-white fs-4"><span class="fst-italic">NgMovie</span>🍿</a>
+    <div class="d-flex">
+      <input #inputMovie (keyup.enter)="searchMovie(inputMovie.value)" class="form-control me-2" type="search" placeholder="Ej. Avengers" aria-label="Search">
+      <button class="btn btn-outline-success" type="submit" (click)="searchMovie(inputMovie.value)">Buscar</button>
+    </div>
+  </div>
+</nav>

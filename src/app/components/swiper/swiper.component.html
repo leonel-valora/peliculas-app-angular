@@ -1,0 +1,22 @@
+<swiper
+    [slidesPerView]="1"
+    [spaceBetween]="50"
+    (swiper)="onSwiper($event)"
+    (slideChange)="onSlideChange()" *ngIf="peliculas.length > 0"
+    [loop]="true"
+    [pagination]="{ clickable: true }"
+    class="mb-3">
+  <ng-template swiperSlide *ngFor="let pelicula of peliculas" class="text-white" >
+    <div class="slideshow" [ngStyle]="{
+      'background-size': 'cover',
+      'background-image': 'url(https://image.tmdb.org/t/p/w500'+ pelicula.backdrop_path +')'
+      }">
+      <div class="slideshow-body background-gradient">
+        <div class="slideshow-content">
+          <h3 class="fs-2 text-capitalize">{{ pelicula.title }}</h3>
+        <p>{{ pelicula.overview | slice:0:300 }}... <a (click)="showMovie(pelicula.id)" class="stretched-link">leer más</a></p>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+</swiper>
